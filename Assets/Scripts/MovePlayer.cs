@@ -1,0 +1,105 @@
+﻿/*
+MIT License
+
+Copyright (c) 2020 Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MovePlayer : MonoBehaviour
+{
+    public GameSettings gameSettings;
+    private GameObject player;
+    public GameObject[] waypoints;
+    private int startingWaypoint = 0;
+    private int targetWaypoint = 1;
+    private float moveSpeed;
+    private float rotateSpeed;
+    private bool constantSpeed;
+    float timer = 0;
+
+    private Quaternion lookRotation;
+    private bool automatedMovement = true;
+    private bool automatedRotation = true;
+    private CharacterController controller;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = gameSettings.player;
+        automatedMovement = gameSettings.automatedMovement;
+        automatedRotation = gameSettings.automatedRotation;
+        moveSpeed = gameSettings.moveSpeed;
+        rotateSpeed = gameSettings.rotateSpeed;
+        constantSpeed = gameSettings.constantSpeed;
+        player.transform.position = waypoints[startingWaypoint].transform.position;
+        controller = gameSettings.controller;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime * moveSpeed;     
+        
+        Vector3 moveDirection = waypoints[targetWaypoint].transform.position - player.transform.position;
+        Vector3 movement = moveDirection.normalized * moveSpeed * Time.deltaTime;
+               
+        // Automated Movement controls
+        if(automatedMovement == true)
+        {
+
+            // Variable Speed
+            if(constantSpeed == false)
+            {
+                //player.GetComponent<CharacterController>().Move(movement * timer);
+                player.transform.position = Vector3.MoveTowards(player.transform.position,waypoints[targetWaypoint].transform.position,timer * moveSpeed/100);
+            }
+            // Constant Speed
+            if(constantSpeed == true)
+            {
+                //player.GetComponent<CharacterController>().Move(movement);
+                player.transform.position = Vector3.MoveTowards(player.transform.position,waypoints[targetWaypoint].transform.position,moveSpeed/100);
+            }
+        }
+
+        if(Vector3.Distance(player.transform.position,waypoints[targetWaypoint].transform.position) < .1 && targetWaypoint < waypoints.Length - 1)
+        {
+            // Increment Targeted Waypoint for automated movement
+            targetWaypoint++;
+            gameSettings.targetWaypoint=targetWaypoint;
+            
+            // Resets variable speed movement modifier
+            timer = 0;
+            
+            // Identify Look Rotation if autorotation enabled
+            lookRotation = Quaternion.LookRotation(waypoints[targetWaypoint].transform.position - player.transform.position );
+        }
+
+        if(automatedRotation == true)
+        {
+            // Rotates player if autorotation enabled
+            player.transform.rotation = Quaternion.Lerp(player.transform.rotation,lookRotation,Time.deltaTime * rotateSpeed);
+        }
+
+    }
+}
