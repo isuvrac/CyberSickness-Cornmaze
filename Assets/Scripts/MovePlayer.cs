@@ -31,8 +31,8 @@ public class MovePlayer : MonoBehaviour
     public GameSettings gameSettings;
     private GameObject player;
     public GameObject[] waypoints;
-    private int startingWaypoint = 58;
-    private int targetWaypoint = 59;
+    private int startingWaypoint = 0;
+    private int targetWaypoint = 1;
     private float moveSpeed;
     private float rotateSpeed;
     private bool constantSpeed;
