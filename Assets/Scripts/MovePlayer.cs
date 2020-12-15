@@ -31,17 +31,18 @@ public class MovePlayer : MonoBehaviour
     public GameSettings gameSettings;
     private GameObject player;
     public GameObject[] waypoints;
-    private int startingWaypoint = 0;
-    private int targetWaypoint = 1;
+    private int startingWaypoint = 58;
+    private int targetWaypoint = 59;
     private float moveSpeed;
     private float rotateSpeed;
     private bool constantSpeed;
     float timer = 0;
-
     private Quaternion lookRotation;
     private bool automatedMovement = true;
     private bool automatedRotation = true;
     private CharacterController controller;
+    private GameObject cube;
+    private Vector3 slideAdjust;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,9 @@ public class MovePlayer : MonoBehaviour
         constantSpeed = gameSettings.constantSpeed;
         player.transform.position = waypoints[startingWaypoint].transform.position;
         controller = gameSettings.controller;
+        cube = gameSettings.slideObject;
+        //slideAdjust = new Vector3(.003f,-1.7f,1.51f);
+        slideAdjust = new Vector3(0f,-2.63f,.478f);
     }
 
     // Update is called once per frame
@@ -63,11 +67,22 @@ public class MovePlayer : MonoBehaviour
         
         Vector3 moveDirection = waypoints[targetWaypoint].transform.position - player.transform.position;
         Vector3 movement = moveDirection.normalized * moveSpeed * Time.deltaTime;
-               
+        if(targetWaypoint == 61)
+        {
+            player.transform.parent = cube.transform;
+            automatedMovement = false;
+            automatedRotation = false;
+            player.transform.localPosition = slideAdjust;
+        }
+        else
+        {
+            cube.transform.DetachChildren();
+            automatedMovement = true;
+            automatedRotation = true;
+        }
         // Automated Movement controls
         if(automatedMovement == true)
         {
-
             // Variable Speed
             if(constantSpeed == false)
             {

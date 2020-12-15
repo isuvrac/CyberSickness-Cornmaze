@@ -34,6 +34,7 @@ public class PlayerInfo : MonoBehaviour
     private float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
     private bool onTrampoline = false;
+    private GameObject cube;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class PlayerInfo : MonoBehaviour
         controller.enabled = false;
         gravity = gameSettings.gravity;
         jumpSpeed = gameSettings.jumpSpeed;
+        cube = gameSettings.slideObject;
     }
 
     // Update is called once per frame
@@ -64,6 +66,15 @@ public class PlayerInfo : MonoBehaviour
         {
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+            controller.enabled = false;
+        }
+        if(gameSettings.targetWaypoint == 61)
+        {
+            cube.GetComponent<Rigidbody>().useGravity = true;
+        }
+        else
+        {
+            cube.GetComponent<Rigidbody>().useGravity = false;
         }
     }
 }

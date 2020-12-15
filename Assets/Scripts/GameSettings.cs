@@ -32,6 +32,7 @@ public class GameSettings : MonoBehaviour
     public bool constantSpeed;
     public bool automatedRotation = true;
     public GameObject player;
+    public GameObject slideObject;
     public float moveSpeed;
     public float rotateSpeed;
     public float jumpSpeed;
