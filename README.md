@@ -1,7 +1,7 @@
 # CyberSickness-Cornmaze
 A corn maze designed to be a testbed for cybersickness experiments.
 
-Version 1.1 of the maze will be available 12/20/2020.
+Check out this video demonstration: https://youtu.be/GI5c5vbf7Fk
 
 # Description
 
