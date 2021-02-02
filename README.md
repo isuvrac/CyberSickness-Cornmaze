@@ -27,3 +27,7 @@ and More!
 # Contact Us
 
 If there is any questions or concerns please feel free to reach out to: nsepich@iastate.edu
+
+# Disclaimer
+
+The project was supported in part by NSF grant CNS-1156841. The opinions, findings, and conclusions or recommendations expressed are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
