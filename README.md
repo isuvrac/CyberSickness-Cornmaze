@@ -33,7 +33,6 @@ If there is any questions or concerns please feel free to reach out to: nsepich@
 The project was supported in part by NSF grant CNS-1156841. The opinions, findings, and conclusions or recommendations expressed are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
 
 # Citations
-Curtis, M. K., Dawson, K., Jackson, K., Litwin, L., Meusel, C., Dorneich, M. C., Gilbert, S. B., Kelly, J., Stone, R., & Winer, E. (2015). Mitigating Visually Induced Motion Sickness: A virtual hand- eye coordination task. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 59(1), 1839–1843. https://doi.org/10.1177/1541931215591397
-https://lib.dr.iastate.edu/imse_conf/27/
+Curtis, M. K., Dawson, K., Jackson, K., Litwin, L., Meusel, C., Dorneich, M. C., Gilbert, S. B., Kelly, J., Stone, R., & Winer, E. (2015). Mitigating Visually Induced Motion Sickness: A virtual hand- eye coordination task. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 59(1), 1839–1843. https://lib.dr.iastate.edu/imse_conf/27/
 
 Jasper, A., Cone, N., Curtis, M., Meusel, C., Dorneich, M. C., & Gilbert, S. (2020). Visually Induced Motion Sickness Susceptibility and Recovery Based on Four Mitigation Techniques. Frontiers in Virtual Reality, 1(22). https://doi.org/10.3389/frvir.2020.582108
