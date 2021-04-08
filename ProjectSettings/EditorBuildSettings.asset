@@ -6,10 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Oculus/VR/Scenes/ControllerTest.unity
-    guid: d56af3aeb2176e7459f753c1c2e2dd97
+    path: Assets/Scenes/StartMenu.unity
+    guid: 94801237a40085c47a8019fe9e4c525b
+  - enabled: 1
+    path: Assets/Scenes/CornMaze 2D.unity
+    guid: cfd9a37174a7cea409b2c1140d426851
+  - enabled: 1
+    path: Assets/Scenes/CornMaze 3D.unity
+    guid: d912e75ce7029a548811e2dd9077b36b
+  - enabled: 1
+    path: Assets/Scenes/MiddleMenu.unity
+    guid: 77774940946ac324fb4662cc117162f8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 08ab68259aafa9e469f09dc06b016cc8,
+      type: 2}
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: aa57c6ce358d97b489d754243388870e,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 32f19bb716e5d7749a3e727736f10a19,
       type: 2}

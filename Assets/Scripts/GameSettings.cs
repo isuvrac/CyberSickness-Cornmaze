@@ -1,7 +1,7 @@
 ﻿/*
 MIT License
 
-Copyright (c) 2020 Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
+Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,16 +28,13 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    public bool automatedMovement = true;
-    public bool constantSpeed;
-    public bool automatedRotation = true;
-    public GameObject player;
-    public GameObject slideObject;
-    public float moveSpeed;
-    public float rotateSpeed;
-    public float jumpSpeed;
-    public float gravity;
-    public int targetWaypoint;
-    public CharacterController controller;
-
+    public static GameSettings instance;
+    public bool is3d;
+    public static int trialNumber;
+    
+    void Awake()
+    {
+        instance = this;
+    }
+    
 }

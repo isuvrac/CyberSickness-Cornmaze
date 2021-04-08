@@ -1,7 +1,7 @@
 ﻿/*
 MIT License
 
-Copyright (c) 2020 Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
+Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +25,16 @@ SOFTWARE.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ButtonCommands : MonoBehaviour
 {
-    public MovePlayer movePlayerScript;
-    public Canvas startCanvas;
+    // public GameSettings gameSettings;
+    // public GameObject startCanvas;
+    // public GameObject restartCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,9 +43,37 @@ public class ButtonCommands : MonoBehaviour
         
     }
 
-    public void StartMaze()
+    public void StartMaze3D()
     {
-        movePlayerScript.enabled = true;
-        startCanvas.enabled = false;
+        SceneManager.LoadScene("CornMaze 3D");
+    }
+    public void StartMaze2D()
+    {
+        SceneManager.LoadScene("CornMaze 2D");
+    }
+    public void LoadMiddleMenu()
+    {
+        SceneManager.LoadScene("MiddleMenu");
+    }
+    public void LoadStartMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+    public void QuitApp()
+    {
+        if(Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else
+        {
+            Application.Quit();
+        }
+    }
+    public void test() 
+    {
+        {
+            print("test");
+        }
     }
 }

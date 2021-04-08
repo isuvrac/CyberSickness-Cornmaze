@@ -1,7 +1,7 @@
 ﻿/*
 MIT License
 
-Copyright (c) 2020 Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
+Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,11 +25,13 @@ SOFTWARE.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
-    public GameSettings gameSettings;
+    public MazeController mazeController;
     private GameObject player;
+    private GameObject playerCam;
     public GameObject[] waypoints;
     private int startingWaypoint = 0;
     private int targetWaypoint = 1;
@@ -42,22 +44,26 @@ public class MovePlayer : MonoBehaviour
     private bool automatedRotation = true;
     private CharacterController controller;
     private GameObject cube;
+    private GameObject elevator;
     private Vector3 slideAdjust;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = gameSettings.player;
-        automatedMovement = gameSettings.automatedMovement;
-        automatedRotation = gameSettings.automatedRotation;
-        moveSpeed = gameSettings.moveSpeed;
-        rotateSpeed = gameSettings.rotateSpeed;
-        constantSpeed = gameSettings.constantSpeed;
+        player = mazeController.playerRig;
+        playerCam = mazeController.playerCam;
+        automatedMovement = mazeController.automatedMovement;
+        automatedRotation = mazeController.automatedRotation;
+        moveSpeed = mazeController.moveSpeed;
+        rotateSpeed = mazeController.rotateSpeed;
+        constantSpeed = mazeController.constantSpeed;
         player.transform.position = waypoints[startingWaypoint].transform.position;
-        controller = gameSettings.controller;
-        cube = gameSettings.slideObject;
+        controller = mazeController.controller;
+        cube = mazeController.slideObject;
         //slideAdjust = new Vector3(.003f,-1.7f,1.51f);
-        slideAdjust = new Vector3(0f,-2.63f,.478f);
+        //slideAdjust = new Vector3(0f,2.63f,.478f);
+        slideAdjust = new Vector3(0f, 0f,0f);
+        elevator = mazeController.elevator;
     }
 
     // Update is called once per frame
@@ -72,6 +78,7 @@ public class MovePlayer : MonoBehaviour
             player.transform.parent = cube.transform;
             automatedMovement = false;
             automatedRotation = false;
+            player.transform.localScale = new Vector3(1f, 1f,1f);
             player.transform.localPosition = slideAdjust;
         }
         else
@@ -99,10 +106,10 @@ public class MovePlayer : MonoBehaviour
 
         if(Vector3.Distance(player.transform.position,waypoints[targetWaypoint].transform.position) < .1 && targetWaypoint < waypoints.Length - 1)
         {
-            // Increment Targeted Waypoint for automated movement
+            // Increment Targeted Waypoint for automated movement 
             targetWaypoint++;
-            gameSettings.targetWaypoint=targetWaypoint;
-            
+            mazeController.targetWaypoint=targetWaypoint;
+
             // Resets variable speed movement modifier
             timer = 0;
             
@@ -116,5 +123,9 @@ public class MovePlayer : MonoBehaviour
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation,lookRotation,Time.deltaTime * rotateSpeed);
         }
 
+        if(mazeController.targetWaypoint == 66)
+        {
+            SceneManager.LoadScene("MiddleMenu");
+        }
     }
 }

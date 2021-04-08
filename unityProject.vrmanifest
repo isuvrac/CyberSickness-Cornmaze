@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.sickness_maze_2020.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\Nate\\Documents\\VRAC\\Unity Repos\\Teleport2020\\Teleport2020\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Sickness_Maze_2020 [Testing]"
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2020 Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
+Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public GameSettings gameSettings;
+    public MazeController mazeController;
     private CharacterController controller;
     private float jumpSpeed = 8.0F;
     private float gravity = 20.0F;
@@ -38,17 +38,17 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = gameSettings.controller;
+        controller = mazeController.controller;
         controller.enabled = false;
-        gravity = gameSettings.gravity;
-        jumpSpeed = gameSettings.jumpSpeed;
-        cube = gameSettings.slideObject;
+        gravity = mazeController.gravity;
+        jumpSpeed = mazeController.jumpSpeed;
+        cube = mazeController.slideObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameSettings.targetWaypoint == 27 || gameSettings.targetWaypoint == 58)
+        if(mazeController.targetWaypoint == 27 || mazeController.targetWaypoint == 58)
         {
             onTrampoline = true;
             controller.enabled = true;
@@ -68,7 +68,7 @@ public class PlayerInfo : MonoBehaviour
             controller.Move(moveDirection * Time.deltaTime);
             controller.enabled = false;
         }
-        if(gameSettings.targetWaypoint == 61)
+        if(mazeController.targetWaypoint == 61)
         {
             cube.GetComponent<Rigidbody>().useGravity = true;
         }
@@ -76,5 +76,6 @@ public class PlayerInfo : MonoBehaviour
         {
             cube.GetComponent<Rigidbody>().useGravity = false;
         }
+    
     }
 }

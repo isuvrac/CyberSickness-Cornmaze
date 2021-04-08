@@ -18,10 +18,10 @@ The project is currently set up to run with Oculus and has been tested on the Oc
 The next version(s) of the maze hope to include:
 
 -Player Controlled Movement
--User Interface to decide number of run throughs of the maze
+-User Interface to decide number of run throughs of the maze (DONE)
 -Sickness measurements
 -Data collection and data writing to project files
--SteamVR integration
+-SteamVR integration (DONE)
 and More!
 
 # Contact Us
