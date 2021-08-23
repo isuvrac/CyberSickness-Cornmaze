@@ -31,6 +31,10 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance;
     public bool is3d;
     public static int trialNumber;
+    public static string participantID;
+    public static string condition;
+    public static int nBackVal;
+    public static bool isTraining;
     
     void Awake()
     {

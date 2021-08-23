@@ -24,7 +24,7 @@ SOFTWARE.
 
 using UnityEngine;
 
-[RequireComponent(typeof(RectTransform))]
+//[RequireComponent(typeof(RectTransform))]
 public class VRUIItem : MonoBehaviour
 {
     private BoxCollider boxCollider;
@@ -42,7 +42,6 @@ public class VRUIItem : MonoBehaviour
 
     private void ValidateCollider()
     {
-        rectTransform = GetComponent<RectTransform>();
 
         boxCollider = GetComponent<BoxCollider>();
         if (boxCollider == null)

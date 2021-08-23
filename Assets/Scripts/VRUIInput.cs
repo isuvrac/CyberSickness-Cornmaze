@@ -1,4 +1,4 @@
-﻿/*
+/*
 MIT License
 
 Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
@@ -58,16 +58,9 @@ public class VRUIInput : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject != null)
         {
             ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);
+            //print(EventSystem.current.currentSelectedGameObject.name);
         }
     }
-    private void HandleTriggerClicked(object sender, ClickedEventArgs e)
-    {
-        if (EventSystem.current.currentSelectedGameObject != null)
-        {
-            ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);
-        }
-    }
-
     private void HandlePointerIn(object sender, PointerEventArgs e)
     {
         var button = e.target.GetComponent<Button>();
@@ -91,6 +84,7 @@ public class VRUIInput : MonoBehaviour
 
         var button = e.target.GetComponent<Button>();
         var toggle = e.target.GetComponent<Toggle>();
+        var nBackObject = e.target;
 
         if (button != null)
         {
