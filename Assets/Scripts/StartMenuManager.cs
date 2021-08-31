@@ -35,6 +35,7 @@ public class StartMenuManager : MonoBehaviour
 
     public Text participantIDinput;
     public Dropdown condition;
+    public Dropdown handedness;
     public GameObject startButton;
     public Component nBackManager;
     //public GameSettings GameSettings;
@@ -51,7 +52,7 @@ public class StartMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(participantIDinput != null && condition.value != 0)
+        if(participantIDinput != null && condition.value != 0 && handedness.value != 0)
         {
             startButton.SetActive(true);
         }
@@ -84,11 +85,21 @@ public class StartMenuManager : MonoBehaviour
         GameSettings.participantID = participantIDinput.text;
         if(condition.value == 1)
         {
-            GameSettings.condition = "1-Back";
+            GameSettings.condition = "CONTROL";
+            GameSettings.nBackVal = 0;
         }
         else if(condition.value == 2)
         {
             GameSettings.condition = "2-Back";
+            GameSettings.nBackVal = 2;
+        }
+        if(handedness.value == 1)
+        {
+            GameSettings.handedness = "Right";
+        }
+        else if(handedness.value == 2)
+        {
+            GameSettings.handedness = "Left";
         }
         GameSettings.nBackVal = condition.value;
         startCanvas.SetActive(false);
@@ -104,12 +115,6 @@ public class StartMenuManager : MonoBehaviour
         else
         {
             Application.Quit();
-        }
-    }
-    public void test() 
-    {
-        {
-            print("test");
         }
     }
 }

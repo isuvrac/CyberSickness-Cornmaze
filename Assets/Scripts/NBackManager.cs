@@ -6,7 +6,7 @@ using System;
 public class NBackManager : MonoBehaviour
 {
     private int numTrials;
-    public static int currentTrial = 0;
+    public int currentTrial = 0;
     [SerializeField]
     private GameObject[] objects;
     [SerializeField]
@@ -27,6 +27,8 @@ public class NBackManager : MonoBehaviour
     private bool objectClicked = false;
     private bool responseCorrect;
     public static int nBackVal = 2;
+    public GameObject rController;
+    public GameObject lController;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +39,17 @@ public class NBackManager : MonoBehaviour
             System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID, Condition, Trial Number, Object, ShouldClick, Clicked, Response Time, Correct" + "\n");
         }
         nBackVal = GameSettings.nBackVal;
-        //objectToLoad = objects[ObjectNumberGenerator()];
-        //Instantiate(objectToLoad,spawnLocations[0],false);
+
+        if(GameSettings.handedness == "Right")
+        {
+            rController.SetActive(true);
+        }
+        else
+        {
+            lController.SetActive(true);
+        }
+
+        AdvanceNBack();
     }
 
     // Update is called once per frame
@@ -80,14 +91,21 @@ public class NBackManager : MonoBehaviour
         {
             if(currentObject.name == nBackOrder[currentTrial - nBackVal])
             {
-            // The object should be clicked
-            shouldClick = true;
+                // The object should be clicked
+                shouldClick = true;
             }
-        else
+            else
             {
-            // The object should NOT be clicked
-            shouldClick = false;
+                shouldClick = false;
             }
+        }
+        else if(nBackVal == 0)
+        {
+            shouldClick = true;
+        }
+        else 
+        {
+            shouldClick = false;
         }
         
         currentTrial++;

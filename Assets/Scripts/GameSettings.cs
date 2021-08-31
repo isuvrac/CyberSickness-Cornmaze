@@ -33,6 +33,7 @@ public class GameSettings : MonoBehaviour
     public static int trialNumber;
     public static string participantID;
     public static string condition;
+    public static string handedness;
     public static int nBackVal;
     public static bool isTraining;
     
