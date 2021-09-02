@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ExperimentScreenManager : MonoBehaviour
 {
-    
     public Text trialNumber;
     public Text target;
     public Text shouldClick;

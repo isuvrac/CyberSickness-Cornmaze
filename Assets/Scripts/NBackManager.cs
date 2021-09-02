@@ -34,9 +34,18 @@ public class NBackManager : MonoBehaviour
     {
         numTrials = spawnLocations.Length;
         nBackOrder = new string[numTrials];
+        nBackVal = GameSettings.nBackVal;
+        if(nBackVal == 0)
+        {
+            shouldClick = true;
+        }
+        if(nBackVal == 2)
+        {
+            shouldClick = false;
+        }
         if(GameSettings.isTraining == false)
         {
-            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID, Condition, Trial Number, Object, ShouldClick, Clicked, Response Time, Correct" + "\n");
+            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct" + "\n");
         }
         nBackVal = GameSettings.nBackVal;
 
@@ -87,25 +96,17 @@ public class NBackManager : MonoBehaviour
             currentObject = Instantiate(objectToLoad,spawnLocations[currentTrial],false);    
         }
         
-        if(currentTrial >= nBackVal)
-        {
-            if(currentObject.name == nBackOrder[currentTrial - nBackVal])
-            {
-                // The object should be clicked
-                shouldClick = true;
-            }
-            else
-            {
-                shouldClick = false;
-            }
-        }
-        else if(nBackVal == 0)
+        if(nBackVal == 0)
         {
             shouldClick = true;
         }
-        else 
+        else if(currentTrial >= nBackVal)
         {
-            shouldClick = false;
+            if(currentObject.name == nBackOrder[currentTrial - nBackVal])
+            {   
+                // The object should be clicked
+                shouldClick = true;
+            }
         }
         
         currentTrial++;
@@ -136,8 +137,8 @@ public class NBackManager : MonoBehaviour
                 print("bad job");
             }
         }
-        timeBetweenObjects = 3f;
-        AdvanceNBack();
+        //timeBetweenObjects = 3f;
+        //AdvanceNBack();
         print("DESTROYED");
     }
 
@@ -169,6 +170,5 @@ public class NBackManager : MonoBehaviour
         }
         
     }
-
 
 }
