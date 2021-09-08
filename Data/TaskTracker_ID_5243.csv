@@ -1,0 +1,6 @@
+ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
+5243,No Task,1,NBackGameCoin(Clone),False,False,0,True
+5243,No Task,2,NBackGameCoin(Clone),False,False,0,True
+5243,No Task,3,NBackCow(Clone),False,False,0,True
+5243,No Task,4,NBackGameCoin(Clone),False,False,0,True
+5243,No Task,5,NBackGameCoin(Clone),False,False,0,True

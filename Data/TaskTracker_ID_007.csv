@@ -1,0 +1,7 @@
+ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
+007,No Task,1,skunk(Clone),False,False,0,True
+007,No Task,2,NBackGameCoin(Clone),False,False,0,True
+007,No Task,3,skunk(Clone),False,False,0,True
+007,No Task,4,NBackCow(Clone),False,False,0,True
+007,No Task,5,skunk(Clone),False,False,0,True
+007,No Task,6,NBackGameCoin(Clone),False,False,0,True

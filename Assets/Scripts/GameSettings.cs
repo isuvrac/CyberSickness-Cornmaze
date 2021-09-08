@@ -1,4 +1,4 @@
-﻿/*
+/*
 MIT License
 
 Copyright (c) 2020 Iowa State University, Nathan Sepich, Grace Freed, Michael Curtis, Kayla Dawson, Kelli Jackson, Liat Litwin
@@ -31,10 +31,10 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance;
     public bool is3d;
     public static int trialNumber;
-    public static string participantID;
-    public static string condition;
-    public static string handedness;
-    public static int nBackVal;
+    public static string participantID = "TEST";
+    public static string condition = "No Task";
+    public static string handedness = "Right";
+    public static int nBackVal = 0;
     public static bool isTraining;
     
     void Awake()

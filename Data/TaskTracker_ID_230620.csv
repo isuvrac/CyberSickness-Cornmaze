@@ -1,6 +1,0 @@
-ID, Condition, Trial Number, Object, ShouldClick, Clicked, Response Time, Correct
-230620,CONTROL,1,NBackGameCoin(Clone),False,False,0,True
-230620,CONTROL,2,NBackCow(Clone),False,True,1.9083468,False
-230620,CONTROL,3,skunk(Clone),False,False,0,True
-230620,CONTROL,4,NBackCow(Clone),False,False,0,True
-230620,CONTROL,5,NBackCow(Clone),True,False,0,False

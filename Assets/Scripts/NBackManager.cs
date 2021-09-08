@@ -26,7 +26,7 @@ public class NBackManager : MonoBehaviour
     public bool shouldClick = false;
     private bool objectClicked = false;
     private bool responseCorrect;
-    public static int nBackVal = 2;
+    public static int nBackVal;
     public GameObject rController;
     public GameObject lController;
     // Start is called before the first frame update
@@ -49,15 +49,17 @@ public class NBackManager : MonoBehaviour
         }
         nBackVal = GameSettings.nBackVal;
 
-        if(GameSettings.handedness == "Right")
+        if(nBackVal != 0)
         {
-            rController.SetActive(true);
+            if(GameSettings.handedness == "Right")
+            {
+                rController.SetActive(true);
+            }
+            else
+            {
+                lController.SetActive(true);
+            }
         }
-        else
-        {
-            lController.SetActive(true);
-        }
-
         AdvanceNBack();
     }
 
@@ -98,7 +100,18 @@ public class NBackManager : MonoBehaviour
         
         if(nBackVal == 0)
         {
-            shouldClick = true;
+            shouldClick = false;
+        }
+        else if(nBackVal == 1)
+        {
+            if(currentObject.name == "NBackCow(Clone)")
+            {
+                shouldClick = true;
+            }
+            else
+            {
+                shouldClick = false;
+            }
         }
         else if(currentTrial >= nBackVal)
         {
@@ -107,8 +120,13 @@ public class NBackManager : MonoBehaviour
                 // The object should be clicked
                 shouldClick = true;
             }
+            else
+            {
+                // The object should NOT be clicked
+                shouldClick = false;
+            }
         }
-        
+
         currentTrial++;
         GameSettings.trialNumber = currentTrial;
         trialStartTime = DateTime.Now;
@@ -122,7 +140,7 @@ public class NBackManager : MonoBehaviour
 
         if(currentTrial > 1)
         {
-            if(currentObject.name == nBackOrder[currentTrial - nBackVal])
+            if(shouldClick)
             {
                 //Successfully clicked the right object, play good sound
                 playerAudioSource.clip = goodSound;

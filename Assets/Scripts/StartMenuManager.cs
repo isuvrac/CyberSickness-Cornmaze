@@ -34,6 +34,7 @@ public class StartMenuManager : MonoBehaviour
     // public GameObject restartCanvas;
 
     public Text participantIDinput;
+    public Text instructionsText;
     public Dropdown condition;
     public Dropdown handedness;
     public GameObject startButton;
@@ -61,6 +62,19 @@ public class StartMenuManager : MonoBehaviour
             startButton.SetActive(false);
         }
         trialCount.text = "Trial Number: " + GameSettings.trialNumber.ToString();
+
+        if(condition.value == 1)
+        {
+            instructionsText.text = "You are part of the No-Task group. \n \nYou will experience the maze with no task.";
+        }
+        else if(condition.value == 2)
+        {
+            instructionsText.text = "You are part of the 0-Back group. \n \nYou will be targeting COWS. Please point at the COWS and pull the trigger only if its a COW.";
+        }
+        else if(condition.value == 3)
+        {
+            instructionsText.text = "You are part of the 2-Back group. \n \nPlease point at the animal, if it is the same as the animal that was 2-back pull the trigger.";
+        }
     }
 
     public void StartMaze3D()
@@ -83,16 +97,25 @@ public class StartMenuManager : MonoBehaviour
     {
         nBackManager.GetComponent<NBackManager>().enabled = true;
         GameSettings.participantID = participantIDinput.text;
+        
+        // Set Condition
         if(condition.value == 1)
         {
-            GameSettings.condition = "CONTROL";
+            GameSettings.condition = "No Task";
             GameSettings.nBackVal = 0;
         }
         else if(condition.value == 2)
         {
+            GameSettings.condition = "0-Back";
+            GameSettings.nBackVal = 1;
+        }
+        else if(condition.value == 3)
+        {
             GameSettings.condition = "2-Back";
             GameSettings.nBackVal = 2;
         }
+        
+        // Set Handedness
         if(handedness.value == 1)
         {
             GameSettings.handedness = "Right";
@@ -101,7 +124,7 @@ public class StartMenuManager : MonoBehaviour
         {
             GameSettings.handedness = "Left";
         }
-        GameSettings.nBackVal = condition.value;
+
         startCanvas.SetActive(false);
         inGameCanvas.SetActive(true);
     }
