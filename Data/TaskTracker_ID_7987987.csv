@@ -1,0 +1,7 @@
+ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
+7987987,0-Back,1,skunk(Clone),False,False,0,True
+7987987,0-Back,2,skunk(Clone),False,False,0,True
+7987987,0-Back,3,skunk(Clone),False,False,0,True
+7987987,0-Back,4,NBackGameCoin(Clone),False,False,0,True
+7987987,0-Back,5,NBackGameCoin(Clone),False,False,0,True
+7987987,0-Back,6,NBackCow(Clone),True,True,1.5313964,True

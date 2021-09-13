@@ -1,7 +1,12 @@
 ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
-007,No Task,1,skunk(Clone),False,False,0,True
-007,No Task,2,NBackGameCoin(Clone),False,False,0,True
-007,No Task,3,skunk(Clone),False,False,0,True
-007,No Task,4,NBackCow(Clone),False,False,0,True
-007,No Task,5,skunk(Clone),False,False,0,True
-007,No Task,6,NBackGameCoin(Clone),False,False,0,True
+007,0-Back,1,NBackGameCoin(Clone),False,True,2.0121251,False
+007,0-Back,2,NBackSkunk(Clone),False,True,1.3245902,False
+007,0-Back,3,NBackGameCoin(Clone),False,True,0.6828752,False
+007,0-Back,4,NBackSkunk(Clone),False,True,0.7787504,False
+007,0-Back,5,NBackGameCoin(Clone),False,True,1.0744539,False
+007,0-Back,6,NBackCow(Clone),True,True,0.8211183,True
+007,0-Back,7,NBackCow(Clone),True,False,0,False
+007,0-Back,8,NBackCow(Clone),True,True,1.3353259,True
+007,0-Back,9,NBackGameCoin(Clone),False,False,0,True
+007,0-Back,10,NBackGameCoin(Clone),False,False,0,True
+007,0-Back,11,NBackGameCoin(Clone),False,False,0,True

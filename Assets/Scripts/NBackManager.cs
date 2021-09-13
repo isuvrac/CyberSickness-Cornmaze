@@ -138,23 +138,21 @@ public class NBackManager : MonoBehaviour
         objectClicked = true;
         trialResponseTime = DateTime.Now;
 
-        if(currentTrial > 1)
+        if(shouldClick)
         {
-            if(shouldClick)
-            {
-                //Successfully clicked the right object, play good sound
-                playerAudioSource.clip = goodSound;
-                playerAudioSource.Play();
-                print("good job");
-            }
-            else
-            {
-                //Clicked the wrong object, play bad sound
-                playerAudioSource.clip = badSound;
-                playerAudioSource.Play();
-                print("bad job");
-            }
+            //Successfully clicked the right object, play good sound
+            playerAudioSource.clip = goodSound;
+            playerAudioSource.Play();
+            print("good job");
         }
+        else
+        {
+            //Clicked the wrong object, play bad sound
+            playerAudioSource.clip = badSound;
+            playerAudioSource.Play();
+            print("bad job");
+        }
+        
         //timeBetweenObjects = 3f;
         //AdvanceNBack();
         print("DESTROYED");
