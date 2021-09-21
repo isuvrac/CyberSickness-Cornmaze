@@ -39,7 +39,7 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         controller = mazeController.controller;
-        controller.enabled = false;
+        //controller.enabled = false;
         gravity = mazeController.gravity;
         jumpSpeed = mazeController.jumpSpeed;
         cube = mazeController.slideObject;

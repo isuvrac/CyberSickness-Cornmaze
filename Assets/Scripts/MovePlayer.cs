@@ -33,8 +33,8 @@ public class MovePlayer : MonoBehaviour
     private GameObject player;
     private GameObject playerCam;
     public GameObject[] waypoints;
-    private int startingWaypoint = 0;
-    private int targetWaypoint = 1;
+    private int startingWaypoint = 25;
+    private int targetWaypoint = 26;
     private float moveSpeed;
     private float rotateSpeed;
     private bool constantSpeed;
@@ -58,6 +58,7 @@ public class MovePlayer : MonoBehaviour
         rotateSpeed = mazeController.rotateSpeed;
         constantSpeed = mazeController.constantSpeed;
         player.transform.position = waypoints[startingWaypoint].transform.position;
+        player.transform.LookAt(waypoints[targetWaypoint].transform);
         controller = mazeController.controller;
         cube = mazeController.slideObject;
         //slideAdjust = new Vector3(.003f,-1.7f,1.51f);
