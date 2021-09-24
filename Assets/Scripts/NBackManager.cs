@@ -66,12 +66,16 @@ public class NBackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeBetweenObjects -= Time.deltaTime;
-        if(timeBetweenObjects < 0 && currentTrial < numTrials)
+        if(GameSettings.pauseNBack == false)
         {
-            AdvanceNBack();
-            timeBetweenObjects = 3f;
+            timeBetweenObjects -= Time.deltaTime;
+            if(timeBetweenObjects < 0 && currentTrial < numTrials)
+            {
+                AdvanceNBack();
+                timeBetweenObjects = 3f;
+            }
         }
+
     }
 
     public int ObjectNumberGenerator()

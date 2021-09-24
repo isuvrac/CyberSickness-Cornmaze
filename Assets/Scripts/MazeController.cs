@@ -45,7 +45,6 @@ public class MazeController : MonoBehaviour
     public float rotateSpeed;
     public float jumpSpeed;
     public float gravity;
-    public int targetWaypoint;
     public CharacterController controller;
     public MovePlayer movePlayer;
     // Start is called before the first frame update
@@ -57,7 +56,7 @@ public class MazeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(targetWaypoint <= 29)
+        if(movePlayer.targetWaypoint <= 29)
         {
             topHalf.SetActive(true);
             bottomHalf.SetActive(false);
@@ -73,7 +72,7 @@ public class MazeController : MonoBehaviour
             bottomRamp.SetActive(true);
 
         }
-        if(targetWaypoint > 40)
+        if(movePlayer.targetWaypoint > 40)
         {
             bottomFirstHalf.SetActive(false);
             bottomSeccondHalf.SetActive(true);

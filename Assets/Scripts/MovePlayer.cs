@@ -33,8 +33,8 @@ public class MovePlayer : MonoBehaviour
     private GameObject player;
     private GameObject playerCam;
     public GameObject[] waypoints;
-    private int startingWaypoint = 25;
-    private int targetWaypoint = 26;
+    public int startingWaypoint;
+    public int targetWaypoint;
     private float moveSpeed;
     private float rotateSpeed;
     private bool constantSpeed;
@@ -109,7 +109,6 @@ public class MovePlayer : MonoBehaviour
         {
             // Increment Targeted Waypoint for automated movement 
             targetWaypoint++;
-            mazeController.targetWaypoint=targetWaypoint;
 
             // Resets variable speed movement modifier
             timer = 0;
@@ -124,7 +123,7 @@ public class MovePlayer : MonoBehaviour
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation,lookRotation,Time.deltaTime * rotateSpeed);
         }
 
-        if(mazeController.targetWaypoint == 66)
+        if(targetWaypoint == 66)
         {
             SceneManager.LoadScene("MiddleMenu");
         }

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CornMaze 3D.unity
     guid: d912e75ce7029a548811e2dd9077b36b
+  - enabled: 1
+    path: Assets/Scenes/MiddleMenu.unity
+    guid: 77774940946ac324fb4662cc117162f8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 08ab68259aafa9e469f09dc06b016cc8,
       type: 2}

@@ -36,6 +36,7 @@ public class GameSettings : MonoBehaviour
     public static string handedness = "Right";
     public static int nBackVal = 0;
     public static bool isTraining;
+    public static bool pauseNBack = false;
     
     void Awake()
     {

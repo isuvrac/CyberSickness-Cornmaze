@@ -1,0 +1,6 @@
+ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
+7999,0-Back,1,NBackSkunk(Clone),False,False,0,True
+7999,0-Back,2,NBackCow(Clone),True,True,0.8494457,True
+7999,0-Back,3,NBackSkunk(Clone),False,False,0,True
+7999,0-Back,4,NBackGameCoin(Clone),False,False,0,True
+7999,0-Back,5,NBackSkunk(Clone),False,True,6.3611983,False

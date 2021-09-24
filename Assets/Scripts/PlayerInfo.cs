@@ -48,7 +48,7 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(mazeController.targetWaypoint == 27 || mazeController.targetWaypoint == 58)
+        if(mazeController.movePlayer.targetWaypoint == 27 || mazeController.movePlayer.targetWaypoint == 58)
         {
             onTrampoline = true;
             controller.enabled = true;
@@ -68,7 +68,7 @@ public class PlayerInfo : MonoBehaviour
             controller.Move(moveDirection * Time.deltaTime);
             controller.enabled = false;
         }
-        if(mazeController.targetWaypoint == 61)
+        if(mazeController.movePlayer.targetWaypoint == 61)
         {
             cube.GetComponent<Rigidbody>().useGravity = true;
         }
@@ -76,6 +76,13 @@ public class PlayerInfo : MonoBehaviour
         {
             cube.GetComponent<Rigidbody>().useGravity = false;
         }
-    
+        if(mazeController.movePlayer.targetWaypoint == 30 || mazeController.movePlayer.targetWaypoint == 61)
+        {
+            GameSettings.pauseNBack = true;
+        }
+        else
+        {
+            GameSettings.pauseNBack = false;
+        }
     }
 }
