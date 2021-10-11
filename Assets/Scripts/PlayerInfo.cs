@@ -61,6 +61,8 @@ public class PlayerInfo : MonoBehaviour
         if (onTrampoline == true && controller.isGrounded) 
         {
             moveDirection.y = jumpSpeed;
+            //moveDirection.x = jumpSpeed/3;
+            controller.enabled = true;
         }
         if(onTrampoline)
         {

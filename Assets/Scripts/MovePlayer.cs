@@ -125,7 +125,8 @@ public class MovePlayer : MonoBehaviour
 
         if(targetWaypoint == 66)
         {
-            SceneManager.LoadScene("MiddleMenu");
+            GameSettings.runNumber++;
+            SceneManager.LoadScene("CornMaze 3D");
         }
     }
 }

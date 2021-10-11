@@ -1,9 +1,1 @@
-ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct
-TEST,No Task,1,NBackCow(Clone),False,False,0,True
-TEST,No Task,2,NBackSkunk(Clone),False,False,0,True
-TEST,No Task,3,NBackCow(Clone),False,False,0,True
-TEST,No Task,4,NBackSkunk(Clone),False,False,0,True
-TEST,No Task,5,NBackCow(Clone),False,False,0,True
-TEST,No Task,6,NBackCow(Clone),False,False,0,True
-TEST,No Task,7,NBackSkunk(Clone),False,False,0,True
-TEST,No Task,8,NBackGameCoin(Clone),False,False,0,True
+ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,ExposureTime

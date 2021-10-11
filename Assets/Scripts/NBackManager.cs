@@ -23,6 +23,7 @@ public class NBackManager : MonoBehaviour
     private AudioClip badSound;
     private DateTime trialStartTime;
     private DateTime trialResponseTime;
+    private DateTime exposureStartTime;
     public bool shouldClick = false;
     private bool objectClicked = false;
     private bool responseCorrect;
@@ -32,6 +33,7 @@ public class NBackManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        exposureStartTime = DateTime.Now;
         numTrials = spawnLocations.Length;
         nBackOrder = new string[numTrials];
         nBackVal = GameSettings.nBackVal;
@@ -45,7 +47,7 @@ public class NBackManager : MonoBehaviour
         }
         if(GameSettings.isTraining == false)
         {
-            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct" + "\n");
+            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,ExposureTime" + "\n");
         }
         nBackVal = GameSettings.nBackVal;
 
@@ -174,19 +176,19 @@ public class NBackManager : MonoBehaviour
         }
         if(objectClicked)
         {
-            System.IO.File.AppendAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", GameSettings.participantID + 
+            System.IO.File.AppendAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", GameSettings.participantID + "," + GameSettings.runNumber + 
              "," + GameSettings.condition + "," + currentTrial.ToString() + "," + currentObject.name.ToString() +
              "," + shouldClick.ToString() + "," + objectClicked.ToString() + 
              "," + (-trialStartTime.Subtract(trialResponseTime).TotalSeconds).ToString() + 
-             "," + responseCorrect.ToString() + "\n");
+             "," + responseCorrect.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
         }
         else
         {
-            System.IO.File.AppendAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", GameSettings.participantID + 
+            System.IO.File.AppendAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", GameSettings.participantID + "," + GameSettings.runNumber +
              "," + GameSettings.condition + "," + currentTrial.ToString() +
              "," + currentObject.name.ToString() + "," + shouldClick.ToString() + 
              "," + objectClicked.ToString() + 
-             "," + "0," + responseCorrect.ToString() + "\n");
+             "," + "0," + responseCorrect.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
         }
         
     }

@@ -31,16 +31,19 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance;
     public bool is3d;
     public static int trialNumber;
+    public static int runNumber;
     public static string participantID = "TEST";
     public static string condition = "No Task";
     public static string handedness = "Right";
     public static int nBackVal = 0;
     public static bool isTraining;
     public static bool pauseNBack = false;
+
     
     void Awake()
     {
         instance = this;
+        runNumber = 1;
     }
     
 }
