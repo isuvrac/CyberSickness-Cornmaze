@@ -43,7 +43,7 @@ public class GameSettings : MonoBehaviour
     void Awake()
     {
         instance = this;
-        runNumber = 1;
-    }
+        runNumber = 0;
+    } 
     
 }

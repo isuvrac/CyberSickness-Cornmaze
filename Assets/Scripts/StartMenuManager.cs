@@ -65,21 +65,22 @@ public class StartMenuManager : MonoBehaviour
 
         if(condition.value == 1)
         {
-            instructionsText.text = "You are part of the No-Task group. \n \nYou will experience the maze with no task.";
+            instructionsText.text = "You are part of the No-Task group. \n \nPlease relax and enjoy the maze!";
         }
         else if(condition.value == 2)
         {
-            instructionsText.text = "You are part of the 0-Back group. \n \nYou will be targeting COWS. Please point at the COWS and pull the trigger only if its a COW.";
+            instructionsText.text = "Vermin Condition: \n \nYou will be targeting Skunks. \n \nPlease point at the Skunks and pull the trigger.";
         }
         else if(condition.value == 3)
         {
-            instructionsText.text = "You are part of the 2-Back group. \n \nPlease point at the animal, if it is the same as the animal that was 2-back pull the trigger.";
+            instructionsText.text = "2-Back Task: \n \nPlease point and pull the trigger if the animal is the same as it was 2 animals ago.";
         }
     }
 
     public void StartMaze3D()
     {
         SceneManager.LoadScene("CornMaze 3D");
+        GameSettings.runNumber++;
     }
     public void StartMaze2D()
     {
@@ -97,7 +98,7 @@ public class StartMenuManager : MonoBehaviour
     {
         nBackManager.GetComponent<NBackManager>().enabled = true;
         GameSettings.participantID = participantIDinput.text;
-        
+
         // Set Condition
         if(condition.value == 1)
         {

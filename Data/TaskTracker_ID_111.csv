@@ -1,0 +1,10 @@
+ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,ExposureTime
+111,0,2-Back,1,Cow(Clone),False,True,2.4028676,False,00:00:03.0040610
+111,0,2-Back,2,Skunk(Clone),False,False,0,True,00:00:06.0127531
+111,0,2-Back,3,Pig(Clone),False,False,0,True,00:00:09.0199518
+111,0,2-Back,4,Skunk(Clone),True,True,1.9348458,True,00:00:12.0281327
+111,0,2-Back,5,Skunk(Clone),False,False,0,True,00:00:15.0356498
+111,0,2-Back,6,Skunk(Clone),True,True,0.877182,True,00:00:18.0432702
+111,0,2-Back,7,Skunk(Clone),True,True,0.9049335,True,00:00:21.0500499
+111,0,2-Back,8,Cow(Clone),False,False,0,True,00:00:24.0577329
+111,0,2-Back,9,Skunk(Clone),True,True,1.0993937,True,00:00:27.0655190

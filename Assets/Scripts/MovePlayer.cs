@@ -85,6 +85,7 @@ public class MovePlayer : MonoBehaviour
         else
         {
             cube.transform.DetachChildren();
+            player.transform.localScale = new Vector3(1f, 1f,1f);
             automatedMovement = true;
             automatedRotation = true;
         }

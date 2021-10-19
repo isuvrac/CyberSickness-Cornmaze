@@ -45,7 +45,7 @@ public class NBackManager : MonoBehaviour
         {
             shouldClick = false;
         }
-        if(GameSettings.isTraining == false)
+        if(GameSettings.runNumber == 0)
         {
             System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,ExposureTime" + "\n");
         }
@@ -110,7 +110,7 @@ public class NBackManager : MonoBehaviour
         }
         else if(nBackVal == 1)
         {
-            if(currentObject.name == "NBackCow(Clone)")
+            if(currentObject.name == "Skunk(Clone)")
             {
                 shouldClick = true;
             }
