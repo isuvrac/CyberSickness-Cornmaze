@@ -24,7 +24,12 @@ public class ExperimentScreenManager : MonoBehaviour
        target.text = "Target: " + nBackman.currentObject.name;
        trialNumber.text = "Trial Number: " + GameSettings.trialNumber.ToString();
        shouldClick.text = "Is N-Back?: " + nBackman.shouldClick.ToString();
-       condition.text = "Target: " + GameSettings.condition;
+       condition.text = "Condition: " + GameSettings.condition;
+    }
+
+    public void EndExperiment()
+    {
+        Application.Quit();
     }
 
 }

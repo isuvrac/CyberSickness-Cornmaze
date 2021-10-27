@@ -124,10 +124,15 @@ public class MovePlayer : MonoBehaviour
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation,lookRotation,Time.deltaTime * rotateSpeed);
         }
 
+        if(targetWaypoint == 66 & GameSettings.runNumber > 2)
+        {
+            Application.Quit();
+        }
         if(targetWaypoint == 66)
         {
             GameSettings.runNumber++;
             SceneManager.LoadScene("CornMaze 3D");
         }
+
     }
 }
