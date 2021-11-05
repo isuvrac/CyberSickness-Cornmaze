@@ -60,6 +60,10 @@ public class VRUIInput : MonoBehaviour
             ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);
             //print(EventSystem.current.currentSelectedGameObject.name);
         }
+        else
+        {
+            NBackManager.misclickCount++;
+        }
     }
     private void HandlePointerIn(object sender, PointerEventArgs e)
     {

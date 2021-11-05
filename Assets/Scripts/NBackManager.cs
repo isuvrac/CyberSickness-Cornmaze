@@ -23,6 +23,7 @@ public class NBackManager : MonoBehaviour
     private AudioClip badSound;
     private DateTime trialStartTime;
     private DateTime trialResponseTime;
+    public static int misclickCount;
     private DateTime exposureStartTime;
     public bool shouldClick = false;
     private bool objectClicked = false;
@@ -47,7 +48,7 @@ public class NBackManager : MonoBehaviour
         }
         if(GameSettings.runNumber == 0)
         {
-            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,ExposureTime" + "\n");
+            System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,Misclicks,ExposureTime" + "\n");
         }
         nBackVal = GameSettings.nBackVal;
 
@@ -174,13 +175,21 @@ public class NBackManager : MonoBehaviour
         {
             responseCorrect = false;
         }
+
+        if(shouldClick == true && objectClicked == false)
+        {
+            playerAudioSource.clip = badSound;
+            playerAudioSource.Play();
+            print("bad job");
+        }
+
         if(objectClicked)
         {
             System.IO.File.AppendAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", GameSettings.participantID + "," + GameSettings.runNumber + 
              "," + GameSettings.condition + "," + currentTrial.ToString() + "," + currentObject.name.ToString() +
              "," + shouldClick.ToString() + "," + objectClicked.ToString() + 
              "," + (-trialStartTime.Subtract(trialResponseTime).TotalSeconds).ToString() + 
-             "," + responseCorrect.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
+             "," + responseCorrect.ToString() + "," + misclickCount.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
         }
         else
         {
@@ -188,9 +197,10 @@ public class NBackManager : MonoBehaviour
              "," + GameSettings.condition + "," + currentTrial.ToString() +
              "," + currentObject.name.ToString() + "," + shouldClick.ToString() + 
              "," + objectClicked.ToString() + 
-             "," + "0," + responseCorrect.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
+             "," + "0," + responseCorrect.ToString() + "," + misclickCount.ToString() + "," + (-exposureStartTime.Subtract(DateTime.Now)) + "\n");
         }
         
+        misclickCount = 0;
     }
 
 }
