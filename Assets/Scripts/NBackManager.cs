@@ -34,7 +34,6 @@ public class NBackManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        exposureStartTime = DateTime.Now;
         numTrials = spawnLocations.Length;
         nBackOrder = new string[numTrials];
         nBackVal = GameSettings.nBackVal;
@@ -49,6 +48,7 @@ public class NBackManager : MonoBehaviour
         if(GameSettings.runNumber == 0)
         {
             System.IO.File.WriteAllText("Data/TaskTracker_ID_" + GameSettings.participantID + ".csv", "ID,RunNumber,Condition,Trial Number,Object,ShouldClick,Clicked,Response Time,Correct,Misclicks,ExposureTime" + "\n");
+            exposureStartTime = DateTime.Now;
         }
         nBackVal = GameSettings.nBackVal;
 

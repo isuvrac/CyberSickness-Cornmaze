@@ -124,7 +124,7 @@ public class MovePlayer : MonoBehaviour
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation,lookRotation,Time.deltaTime * rotateSpeed);
         }
 
-        if(targetWaypoint == 66 & GameSettings.runNumber > 2)
+        if(targetWaypoint == 66 & GameSettings.runNumber >= 2)
         {
             Application.Quit();
         }
