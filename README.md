@@ -1,7 +1,9 @@
 # CyberSickness-Cornmaze
 A corn maze designed to be a testbed for cybersickness experiments.
 
-Check out this video demonstration: https://youtu.be/GI5c5vbf7Fk
+Check out this video of Version 1, with 2D corn images: https://youtu.be/GI5c5vbf7Fk
+
+A later version was created with 3D corn plants: https://youtu.be/-6JEeQuNcgI
 
 # Description
 
@@ -18,15 +20,14 @@ The project is currently set up to run with Oculus and has been tested on the Oc
 The next version(s) of the maze hope to include:
 
 -Player Controlled Movement
--User Interface to decide number of run throughs of the maze (DONE)
 -Sickness measurements
--Data collection and data writing to project files
--SteamVR integration (DONE)
+-Emotibit integration
+
 and More!
 
 # Contact Us
 
-If there is any questions or concerns please feel free to reach out to: nsepich@iastate.edu
+If there is any questions or concerns please feel free to reach out to: gilbert@iastate.edu
 
 # Disclaimer
 
